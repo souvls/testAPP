@@ -4,12 +4,17 @@ const path = require('path')
 //express app
 
 const app = express()
+
+//dynamic file
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
 let port = process.env.PORT || 8080;
 router.get("/",(req,res)=>{
-    res.send("hello worl");
+    res.render("index")
 })
 
 app.use(router)
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log("run server")
 })
